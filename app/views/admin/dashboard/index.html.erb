@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+  <li>
+  	 <%= link_to "Agents", agent_list_admin_users_path %>
+  	 <%= link_to "Customers", customer_list_admin_users_path %>	
+  	 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>	
+  	 <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>

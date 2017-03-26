@@ -1,0 +1,42 @@
+
+<h3>New User</h3>
+<%= form_for [:admin, @user], :html => {:id => "user",:multipart => true } do |f| %>
+  <% for message in @user.errors.full_messages %>
+    <%= message %><br/>
+  <% end %>
+  
+  <fieldset>
+    <div>
+      <label for="name">User Name</label>
+      <div>
+        <%= f.text_field :username ,:placeholder=>"User Name"%>
+      </div>
+    </div>
+    <div>
+      <label for="name">First Name</label>
+      <div>
+        <%= f.text_field :first_name ,:placeholder=>"First Name" %>
+      </div>
+    </div>
+    <div>
+      <label for="name">Last Name</label>
+      <div>
+        <%= f.text_field :last_name ,:placeholder=>"Last Name" %>
+      </div>
+    </div>
+    <div>
+      <label for="name">Email</label>
+      <div>
+        <%= f.email_field :email ,:placeholder=>"Email"%>
+      </div>
+    </div>
+      <%= f.hidden_field :user_type, value: params[:type].eql?('agent') ? 'agent' : 'customer' %>
+    <div>
+      <div>
+        <%= f.submit "Submit" %>
+      </div>
+    </div>
+  </fieldset>
+<%end%>
+
+

@@ -1,0 +1,54 @@
+
+<h3>New User</h3>
+<%= form_for [:admin, @user], :html => {:id => "user",:multipart => true } do |f| %>
+  <% for message in @user.errors.full_messages %>
+    <%= message %><br/>
+  <% end %>
+  
+  <fieldset>
+    <div>
+      <label for="name">User Name</label>
+      <div>
+        <%= f.text_field :username, value: @user.try(:username) %>
+      </div>
+    </div>
+    <div>
+      <label for="name">First Name</label>
+      <div>
+        <%= f.text_field :first_name , value: @user.try(:first_name) %>
+      </div>
+    </div>
+    <div>
+      <label for="name">Last Name</label>
+      <div>
+        <%= f.text_field :last_name , value: @user.try(:last_name) %>
+      </div>
+    </div>
+    <div>
+      <label for="name">Email</label>
+      <div>
+        <%= f.email_field :email , value: @user.try(:email) %>
+      </div>
+    </div>
+    <div>
+      <label for="name" class="control-label">Password</label>
+      <div>
+        <%= f.password_field :password ,:placeholder=>"Password"%>
+      </div>
+    </div>
+    <div>
+      <label for="name">Confirm Password</label>
+      <div>
+        <%= f.password_field :password_confirmation ,:placeholder=>"Confirm Password" %>
+      </div>
+    </div>
+    <%= hidden_field_tag "user[role_ids][]", @role.id rescue nil%>
+    <div>
+      <div>
+        <%= f.submit "Submit" %>
+      </div>
+    </div>
+  </fieldset>
+<%end%>
+
+
