@@ -10,6 +10,7 @@
   <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username%>
+    <%= f.hidden_field :user_type, value: 'customer'%>
   </div>
   <div class="field">
     <%= f.label :password %>
