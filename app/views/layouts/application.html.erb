@@ -31,7 +31,12 @@
               CALL: <span>0712-2253652</span>
               <div class="quote">
                 <a href="#" class="btn blue-btn">GET A FREE QUOTE</a>  
-                <a href="#" class="btn blue-btn" data-toggle="modal" data-target="#myModal">LOGIN</a>
+               
+                <% if user_signed_in? %>
+                 <%= link_to 'Login', new_user_session_path, class: "btn blue-btn" %>      
+                <% else %>
+                    <%= link_to 'Logout', new_user_session_path, class: "btn blue-btn"  %>
+                <% end %>
               </div>                 
                 	<!-- Modal -->
                       	<div class="modal fade text-left" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
