@@ -1,14 +1,222 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>EaseInsurance</title>
-    <%= csrf_meta_tags %>
+	<!DOCTYPE html>
+	<html>
+	  <head>
+	  	<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	    <title>Ease Insurance</title>
+	    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	  </head>
 
-  <body>
-    <%= yield %>
-  </body>
+	  <body>
+	   <header>
+	     <div class="container">
+	       <div class="row">
+	         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	           <a href="#" class="logo"><img src="/assets/logo.png" alt=""></a>
+	         </div>
+	         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            	<ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Agents</a></li>
+                <li><a href="#">Carporate</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+	         <div class="header-bottom">
+              CALL: <span>0712-2253652</span>
+              <div class="quote">
+                <a href="#" class="btn blue-btn">GET A FREE QUOTE</a>  
+                <a href="#" class="btn blue-btn" data-toggle="modal" data-target="#myModal">LOGIN</a>
+              </div>                 
+                	<!-- Modal -->
+                      	<div class="modal fade text-left" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      	  <div class="modal-dialog" role="document">
+                      	    <div class="modal-content">
+                      	      <div class="modal-header">
+                      	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      	        <h4 class="modal-title" id="myModalLabel">Login Sign up </h4>
+                      	      </div>
+                      	      <div class="modal-body">
+                      	      
+                          	      <div class="row">
+                          	      
+                            	      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 b_right">
+                            	       
+                              	      <form>
+                              	        <p class="text-center"><strong>Login with Email/Phone </strong></p>
+                                    	  <div class="form-group">
+                                    	    <input type="email" placeholder="Email" id="exampleInputEmail1" class="form-control">
+                                    	  </div>
+                                    	  <div class="form-group">
+                                    	    <input type="email" placeholder="Mobile" id="exampleInputEmail1" class="form-control">
+                                    	  </div>
+                                    	  <div class="form-group">
+                                    	    <a href="forgot_password.html" class="link">Forgot Password?</a>
+                                    	  </div>                	  
+                              	        <button class="btn btn-default btn-block greenbtn" type="submit">LOGIN</button>
+                              	  
+                              	        <div class="separator">
+                                          <span>OR</span>
+                                        </div>
+                            	          <a href="#" class="btn btn-block btn-social btn-facebook">
+                            	            <span class="fa fa-facebook"></span> Sign in with Facebook
+                            	          </a>
+                              	  
+                              	       </form>
+                            	      </div>
+                            	      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> 
+                              	      <form>
+                              	         <p class="text-center"><strong>Register</strong></p>
+                              	      
+                                	      <div class="form-group">
+                                	         <input type="name" placeholder="Name" id="exampleInputEmail1" class="form-control">
+                                	      </div>
+                                	      <div class="form-group">
+                                	         <input type="email" placeholder="Email" id="exampleInputEmail1" class="form-control">
+                                	      </div>
+                                	      <div class="form-group">
+                                	         <input type="email" placeholder="Mobile" id="exampleInputEmail1" class="form-control">
+                                	      </div>
+                                	      <div class="form-group">
+                                	         <input type="password" placeholder="Password" id="exampleInputEmail1" class="form-control">
+                                	      </div>
+                                          <button class="btn btn-default btn-block greenbtn" type="submit">Register</button>
+                                      </form>
+                            	      </div>
+                        	       </div> 
+                      	      </div>
+                      	      
+                      	    </div>
+                      	  </div>
+                      	</div><!-- /.modal -->
+	                        <form action="" class="search-form">
+	                           <div class="form-group has-feedback">
+	            		             <label for="search" class="sr-only">Search</label>
+	            		             <input type="text" class="form-control" name="search" id="search" placeholder="search">
+	              		           <span class="glyphicon glyphicon-search form-control-feedback"></span>
+	            	             </div>
+	                        </form>            
+	            </div>             
+	          </div>
+	        </div>
+	      </div>
+	   </header>
+	             <%= yield %>
+
+	    <div class="footer">
+	    	<div class="container">
+	        	<div class="row">
+	            	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	                	
+	                  <img alt="" src="/assets/logobw.png">
+	                	<p style="margin-top:15px">
+	                    Established in 2000, we are your insurance expert committed to providing peace of mind to all kinds of borrowers by helping them obtain and manage a insurance.
+	                    </p>
+	                    <p>
+						            +1 800-PEACE | (1-800-255-7828)
+						          </p>
+	                    <button class="btn green-btn" type="submit">GET A FREE QUOTE</button>
+	                </div>
+	                
+	                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	                	<h2>Insurance</h2>
+	                	  <ul>
+	                    	  <li><a href="#"><i class="fa fa-angle-right"></i>Auto Insurance</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Home Insurance</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Business Insurance</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Life Insurance</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Travel Insurance</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Other Insurance</a></li>
+	                    </ul>
+	                </div>
+	                
+	                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	                	<h2>Quick Links</h2>
+	                	<ul>
+	                    	<li><a href="#"><i class="fa fa-angle-right"></i>About us</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Support</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Careers</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Download App</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Find An Agent</a></li>
+	                        <li><a href="#"><i class="fa fa-angle-right"></i>Claims</a></li>
+	  
+	                    </ul>
+	                </div>
+	                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+	                	<h2>Follow us on</h2>
+	                    <ul class="follow">
+	                    	<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+	                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+	                    </ul>
+	                </div>
+	            </div>
+	    	</div>
+	    </div>
+	    <div class="copyright">
+  	    <div class="container">
+  	    	<div class="row">
+  	        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+  	        	&copy; Copyright 2016, Ease Insurance, All Rights Reserved.
+  	        </div>
+  	        
+  	        <div style="text-align:right" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+  	        	<a href="#">Site Map </a>    <a href="#">Privacy Policy</a>     <a href="#">Terms of Use</a>
+  	        </div>
+  	        </div>
+  	    </div>    
+	    </div>
+	     <!-- Return to Top -->
+	     <a href="javascript:" id="return-to-top"><span aria-hidden="true" class="glyphicon glyphicon-chevron-up"></span></a>
+
+    	    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	    <script src="js/jquery.min.js"></script>
+    	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    	    <script src="js/bootstrap.min.js"></script>
+    	    <script type="text/javascript">
+          		$(document).ready(function () {
+
+          	    $('.btn-vertical-slider').on('click', function () {
+          	        
+          	        if ($(this).attr('data-slide') == 'next') {
+          	            $('#myCarousel').carousel('next');
+          	        }
+          	        if ($(this).attr('data-slide') == 'prev') {
+          	            $('#myCarousel').carousel('prev')
+          	        }
+
+          	    });
+          		
+          		$('.btn-vertical-slider').on('click', function () {
+          	        
+          	        if ($(this).attr('data-slide2') == 'next') {
+          	            $('#myCarousel2').carousel('next');
+          	        }
+          	        if ($(this).attr('data-slide2') == 'prev') {
+          	            $('#myCarousel2').carousel('prev')
+          	        }
+
+          	    });
+          	});
+    		   // ===== Scroll to Top ==== 
+    	     $(window).scroll(function() {
+      	    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+      	        $('#return-to-top').fadeIn(200);    // Fade in the arrow
+      	    } else {
+      	        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+      	    }
+    	    });
+    	    $('#return-to-top').click(function() {      // When arrow is clicked
+      	    $('body,html').animate({
+      	        scrollTop : 0                       // Scroll to top of body
+      	    }, 500);
+    	     });
+		    </script>
+	</body>
 </html>
