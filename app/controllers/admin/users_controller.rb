@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  layout 'admin'
   before_action :authenticate_user!
   before_action :set_users, only: [:edit, :update, :destroy]
 
@@ -10,6 +11,7 @@ class Admin::UsersController < ApplicationController
 
   def new
   	@user = User.new
+    @user.build_agent_detail
   end
 
   def create
@@ -27,7 +29,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    
+    @user.build_agent_detail
   end
 
   def agent_list
@@ -53,7 +55,7 @@ class Admin::UsersController < ApplicationController
 
     respond_to do |format|
       if successfully_updated
-        format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
+        format.html { custom_path(@user) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -65,7 +67,7 @@ class Admin::UsersController < ApplicationController
   def destroy
      @user.destroy
      respond_to do |format|
-       format.html { redirect_to(admin_users_path) }
+       format.html { custom_path(@user) }
        format.xml  { head :ok }
      end
   end
@@ -76,7 +78,7 @@ class Admin::UsersController < ApplicationController
     end 
 
     def user_params
-      params.required(:user).permit(:username, :email,:password, :password_confirmation, :first_name, :last_name, :user_type)
+      params.required(:user).permit(:username, :email,:password, :password_confirmation, :first_name, :last_name, :user_type, agent_detail_attributes: [:id, :code_number, :address, :contact_number, :designation])
     end
 
     # https://github.com/plataformatec/devise/wiki/How-To%3a-Allow-users-to-edit-their-account-without-providing-a-password

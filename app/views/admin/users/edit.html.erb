@@ -1,5 +1,5 @@
 
-<h3>New User</h3>
+<h3><% if params[:type].eql?('agent') %> Edit New Agent <% else %> Edit New Customer <% end %></h3>
 <%= form_for [:admin, @user], :html => {:id => "user",:multipart => true } do |f| %>
   <% for message in @user.errors.full_messages %>
     <%= message %><br/>
@@ -30,6 +30,13 @@
         <%= f.email_field :email , value: @user.try(:email) %>
       </div>
     </div>
+     <div>
+      <% if params[:type].eql?('agent') %>
+          <%= f.fields_for :agent_detail do |builder| %>
+            <%= render "agent_detail_fields", :f => builder %>
+          <% end %>
+      <% end %>
+    </div> 
     <div>
       <label for="name" class="control-label">Password</label>
       <div>

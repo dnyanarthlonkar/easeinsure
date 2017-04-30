@@ -16,7 +16,8 @@ Rails.application.routes.draw do
        get :agent_list
        get :customer_list
       end
-    end     
+    end
+    resources :insurance_companies     
  end
   as :user do
       patch '/user/confirmation' => 'confirmations#update', :via => :patch, :as => :update_user_confirmation

@@ -6,7 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-
+  has_one :agent_detail
+  accepts_nested_attributes_for :agent_detail
+  
   after_create :assign_default_role
   scope :agents, -> { where(user_type: 'agent') }
   scope :customers, -> { where(user_type: 'customer') }

@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326145641) do
+ActiveRecord::Schema.define(version: 20170423124748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agent_details", force: :cascade do |t|
+    t.integer  "code_number"
+    t.text     "address"
+    t.string   "contact_number"
+    t.string   "designation"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "insurance_companies", force: :cascade do |t|
+    t.string   "company_name"
+    t.string   "licence_no"
+    t.string   "company_code"
+    t.text     "company_address"
+    t.string   "contact_number"
+    t.string   "registration_code"
+    t.string   "logo"
+    t.string   "authorised_person_name"
+    t.string   "authorised_person_contact_number"
+    t.string   "authorised_person_contact_email"
+    t.string   "designation"
+    t.boolean  "status"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +72,10 @@ ActiveRecord::Schema.define(version: 20170326145641) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.text     "image"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
