@@ -29,7 +29,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    @user.build_agent_detail
+  
   end
 
   def agent_list

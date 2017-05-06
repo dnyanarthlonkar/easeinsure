@@ -52,7 +52,7 @@ class Admin::InsuranceCompaniesController < ApplicationController
   def destroy
      @insurance_company.destroy
      respond_to do |format|
-       format.html { redirect_to(admin_insurance_companies_path) }
+       format.html { redirect_to(admin_insurance_companies_path,  notice: 'Insurance Company was successfully deleted.') }
        format.xml  { head :ok }
      end
   end

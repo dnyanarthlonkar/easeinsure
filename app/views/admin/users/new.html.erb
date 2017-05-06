@@ -36,14 +36,37 @@
       <%= f.hidden_field :user_type, value: params[:type].eql?('agent') ? 'agent' : 'customer' %>
     <div>
       <% if params[:type].eql?('agent') %>
-          <%= f.fields_for :agent_detail do |builder| %>
-            <%= render "agent_detail_fields", :f => builder %>
+          <%= f.fields_for :agent_detail do |f| %>
+            <div>
+              <label>Code Number</label>
+              <div>
+                <%= f.text_field :code_number , value: @user.agent_detail.code_number %>
+              </div>
+            </div>
+            <div>
+              <label>Address</label>
+              <div>
+                <%= f.text_area :address , value: @user.agent_detail.try(:address) %>
+              </div>
+            </div>
+            <div>
+              <label>Contact Number</label>
+              <div>
+                <%= f.text_field :contact_number ,value: @user.agent_detail.try(:contact_number) %>
+              </div>
+            </div>
+            <div>
+              <label> designation</label>
+              <div>
+                <%= f.text_field :designation ,value: @user.agent_detail.try(:designation) %>
+              </div>
+            </div>
+
           <% end %>
       <% end %>
-    </div>  
-    <div>
+   <div><br>
       <div>
-        <%= f.submit "Submit" %>
+        <%= f.submit "Submit", class: "btn btn-primary"%> <%= link_to 'Cancel', agent_list_admin_users_path, class: 'btn btn-danger' %>
       </div>
     </div>
   </fieldset>

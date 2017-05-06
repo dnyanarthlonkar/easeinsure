@@ -20,6 +20,10 @@
                                     <th>Last Name</th>
                                     <th>Username</th>
                                     <th>Email</th>
+                                    <th>Code Number</th>
+                                    <th>Address</th>
+                                    <th>Contact Number</th>
+                                    <th>Designation</th>
                                     <th>Role</th>
                                     <th>Actions</th>
                                 </tr>
@@ -31,8 +35,12 @@
                                 <td><%= user.try(:first_name) %></td>
                                 <td><%= user.try(:last_name) %></td>
                                 <td><%= user.try(:email) %></td>
+                                <td><%= user.agent_detail.try(:code_number) %></td>
+                                <td><%= user.agent_detail.try(:address) %></td>
+                                <td><%= user.agent_detail.try(:contact_number) %></td>
+                                <td><%= user.agent_detail.try(:designation) %></td>
                                 <td><%= user.roles.first.try(:name) %></td>
-                                  <td><%= link_to "Edit", edit_admin_user_path(user, type: 'agent') , :class => "btn"%>
+                                <td><%= link_to "Edit", edit_admin_user_path(user, type: 'agent') , :class => "btn"%>
                                   | <%= link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                               </tr>
                             </tbody>
