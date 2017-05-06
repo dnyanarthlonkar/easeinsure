@@ -1,4 +1,7 @@
-
+<div id="page-wrapper" >
+  <div id="page-inner">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
 <h3><% if params[:type].eql?('agent') %> Edit New Agent <% else %> Edit New Customer <% end %></h3>
 <%= form_for [:admin, @user], :html => {:id => "user",:multipart => true } do |f| %>
   <% for message in @user.errors.full_messages %>
@@ -57,5 +60,7 @@
     </div>
   </fieldset>
 <%end%>
-
+</div>
+</div>
+</div>
 
