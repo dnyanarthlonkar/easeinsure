@@ -1,0 +1,85 @@
+<div id="page-wrapper" >
+  <div id="page-inner">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+<h3> New Insurance Company</h3>
+<%= form_for [:admin, @insurance_company], :html => {:id => "new_insurance_company",:multipart => true } do |f| %>
+  <% for message in @insurance_company.errors.full_messages %>
+    <%= message %><br/>
+  <% end %>
+    <div>
+      <label for="company_name">Company Name</label>
+      <div>
+        <%= f.text_field :company_name ,:placeholder=>"company name"%>
+      </div>
+    </div>
+    <div>
+      <label for="licence_no">Licence No</label>
+      <div>
+        <%= f.text_field :licence_no ,:placeholder=>"licence no" %>
+      </div>
+    </div>
+    <div>
+      <label for="company_code">Company Code</label>
+      <div>
+        <%= f.text_field :company_code ,:placeholder=>"company code" %>
+      </div>
+    </div>
+    <div>
+      <label for="contact_number">Company Address</label>
+      <div>
+        <%= f.text_area :company_address ,:placeholder=>"company address"%>
+      </div>
+    </div>
+    <div>
+      <label for="name">Contact Number</label>
+      <div>
+        <%= f.text_field :contact_number ,:placeholder=>"contact number"%>
+      </div>
+    </div>
+    <div>
+      <label for="registration_code">Registration Code</label>
+      <div>
+        <%= f.text_field :registration_code ,:placeholder=>"registration code"%>
+      </div>
+    </div>
+      <div>
+      <label for="authorised_person_name">Authorised Person Name</label>
+      <div>
+        <%= f.text_field :authorised_person_name ,:placeholder=>"authorised person name"%>
+      </div>
+    </div>
+     <div>
+      <label for="authorised_person_contact_number">Authorised Person Contact Number</label>
+      <div>
+        <%= f.text_field :authorised_person_contact_number ,:placeholder=>"authorised person contact number"%>
+      </div>
+    </div>
+    <div>
+      <label for="authorised_person_contact_email">Email</label>
+      <div>
+        <%= f.text_field :authorised_person_contact_email ,:placeholder=>"authorised person contact email"%>
+      </div>
+    </div>
+    <div>
+      <label for="designation">Designation</label>
+      <div>
+        <%= f.text_field :designation ,:placeholder=>"designation"%>
+      </div>
+    </div>
+    <div>
+      <label for="designation">logo</label>
+      <div>
+        <%= f.file_field :logo %>
+      </div>
+    </div>
+
+    <div><br>
+      <div>
+        <%= f.submit "Submit", class: "btn btn-primary"%> <%= link_to 'Cancel', admin_insurance_companies_path, class: 'btn btn-danger' %>
+      </div>
+    </div>
+<%end%>
+</div>
+</div>
+</div>

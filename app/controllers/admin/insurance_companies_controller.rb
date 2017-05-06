@@ -1,7 +1,7 @@
 class Admin::InsuranceCompaniesController < ApplicationController
 	layout 'admin'
 	before_action :authenticate_user!
-    before_action :set_insurance_companies, only: [:edit, :update, :destroy]
+  before_action :set_insurance_companies, only: [:edit, :update, :destroy, :show]
     
     load_and_authorize_resource
 
@@ -19,7 +19,7 @@ class Admin::InsuranceCompaniesController < ApplicationController
      
      respond_to do |format|
        if @insurance_company.save   
-         format.html { redirect_to admin_insurance_companies, notice: 'Insurance Company was successfully created.'  }
+         format.html { redirect_to admin_insurance_companies_path, notice: 'Insurance Company was successfully created.'  }
        else
          format.html { render :action => "new" }
        end
@@ -27,7 +27,7 @@ class Admin::InsuranceCompaniesController < ApplicationController
   end
 
   def edit
-    @insurance_company.build_agent_detail
+    
   end
 
   def update
@@ -36,7 +36,7 @@ class Admin::InsuranceCompaniesController < ApplicationController
 
     respond_to do |format|
       if @insurance_company
-        format.html { redirect_to admin_insurance_companies, notice: 'Insurance Company was successfully updated.' }
+        format.html { redirect_to admin_insurance_companies_path, notice: 'Insurance Company was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -45,10 +45,14 @@ class Admin::InsuranceCompaniesController < ApplicationController
     end
   end
 
+  def show
+
+  end 
+
   def destroy
      @insurance_company.destroy
      respond_to do |format|
-       format.html { redirect_to(admin_insurance_companies) }
+       format.html { redirect_to(admin_insurance_companies_path) }
        format.xml  { head :ok }
      end
   end
@@ -60,6 +64,6 @@ class Admin::InsuranceCompaniesController < ApplicationController
 
     def insurance_company_params
       params.required(:insurance_company).permit(:company_name, :licence_no,:company_code, :company_address, :contact_number, 
-      	:registration_code, :authorised_person_name, :authorised_person_contact_number, :authorised_person_contact_email, :designation, :status)
+      	:registration_code, :authorised_person_name, :authorised_person_contact_number, :authorised_person_contact_email, :designation, :status, :logo)
     end
 end

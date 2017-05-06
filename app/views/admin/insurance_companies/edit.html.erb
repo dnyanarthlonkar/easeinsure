@@ -1,0 +1,79 @@
+<div id="page-wrapper" >
+  <div id="page-inner">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+<h3> Edit Insurance Company</h3>
+<%= form_for [:admin, @insurance_company], html: {id: "edit_insurance_company", multipart: true } do |f| %>
+  <% for message in @insurance_company.errors.full_messages %>
+    <%= message %><br/>
+  <% end %>
+    <div>
+      <label for="company_name">Company Name</label>
+      <div>
+        <%= f.text_field :company_name, value: @insurance_company.try(:company_name) %>
+      </div>
+    </div>
+    <div>
+      <label for="licence_no">Licence No</label>
+      <div>
+        <%= f.text_field :licence_no, value: @insurance_company.try(:licence_no) %>
+      </div>
+    </div>
+    <div>
+      <label for="company_code">Company Code</label>
+      <div>
+        <%= f.text_field :company_code, value: @insurance_company.try(:company_code) %>
+      </div>
+    </div>
+    <div>
+      <label for="contact_number">Company Address</label>
+      <div>
+        <%= f.text_area :company_address, value: @insurance_company.try(:company_address) %>
+      </div>
+    </div>
+    <div>
+      <label for="name">Contact Number</label>
+      <div>
+        <%= f.text_field :contact_number, value: @insurance_company.try(:contact_number) %>
+      </div>
+    </div>
+    <div>
+      <label for="registration_code">Registration Code</label>
+      <div>
+        <%= f.text_field :registration_code, value:  @insurance_company.try(:registration_code) %>
+      </div>
+    </div>
+      <div>
+      <label for="authorised_person_name">Authorised Person Name</label>
+      <div>
+        <%= f.text_field :authorised_person_name, value: @insurance_company.try(:authorised_person_name) %>
+      </div>
+    </div>
+     <div>
+      <label for="authorised_person_contact_number">Authorised Person Contact Number</label>
+      <div>
+        <%= f.text_field :authorised_person_contact_number, value: @insurance_company.try(:authorised_person_contact_number) %>
+      </div>
+    </div>
+    <div>
+      <label for="authorised_person_contact_email">Email</label>
+      <div>
+        <%= f.text_field :authorised_person_contact_email, value: @insurance_company.try(:authorised_person_contact_email) %>
+      </div>
+    </div>
+    <div>
+      <label for="designation">Designation</label>
+      <div>
+        <%= f.text_field :designation, value: @insurance_company.try(:designation) %>
+      </div>
+    </div><br>
+    <div>
+      <div>
+        <%= f.submit "Update", class: "btn btn-primary" %> <%= link_to 'Cancel', admin_insurance_companies_path, class: 'btn btn-danger' %>
+
+      </div>
+    </div>
+<%end%>
+</div>
+</div>
+</div>
