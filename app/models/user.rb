@@ -60,4 +60,8 @@ class User < ApplicationRecord
     return false if skip_password_validation
     super
   end
+
+  def admin?
+    self.roles.exists?(name: Role::ADMIN) rescue false
+  end
 end

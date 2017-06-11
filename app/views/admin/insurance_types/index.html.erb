@@ -1,0 +1,45 @@
+<div id="page-wrapper" >
+  <div id="page-inner">
+    <div class="row-fluid">
+      <h3> Insurance Type Management</h3>
+      <div class="col-lg-12 col-md-12">
+         <div class="row">
+           <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+             <tr>
+               <td>
+                 <%= link_to 'New Insurance Type', new_admin_insurance_type_path,class: "btn btn-primary" %>
+               </td>
+             </tr>
+           </table>
+         </div>
+         <div class="row">
+           <table class="table table-striped table-bordered table-hover">
+             <thead>
+               <tr>
+                 <th> Name </th>
+                 <th> Parent </th>
+                 <th> Active </th>
+                 <th> External Url </th>
+                 <th> Actions </th>
+               </tr>
+             </thead>
+             <tbody>
+               <% @insurance_types.each do |insurance_type| %>
+                 <tr>
+                   <td> <%= link_to insurance_type.name, admin_insurance_type_path(insurance_type) %> </td>
+                   <td> <%= insurance_type.parent? %> </td>
+                   <td> <%= insurance_type.active %> </td>
+                   <td> <%= insurance_type.permalink_url %> </td>
+                   <td>
+                     <%= link_to 'Edit', edit_admin_insurance_type_path(insurance_type) , :class => "btn" %>
+                     <%= link_to 'Destroy', admin_insurance_type_path(insurance_type), method: :delete, data: { confirm: 'Are you sure?' } %>
+                   </td>
+                 </tr>
+               <% end %>
+             </tbody>
+           </table>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>

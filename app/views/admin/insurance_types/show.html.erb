@@ -1,0 +1,11 @@
+<% if current_user.admin? %>
+	<div class="container">
+	  <div class="col-12">
+	  	<div class="row-fluid">
+	   	 <%= link_to "Edit", edit_admin_insurance_type_path(@insurance_type), class: "btn btn-primary pul-right" %>
+	 
+		</div>
+	  </div>
+	</div>
+<% end %>	
+<%= @insurance_type.description.html_safe %>

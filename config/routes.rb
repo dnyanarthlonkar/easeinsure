@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  
+  mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     get 'dashboard/index'
   end
@@ -17,9 +20,11 @@ Rails.application.routes.draw do
        get :customer_list
       end
     end
-    resources :insurance_companies     
+    resources :insurance_companies   
+    resources :insurance_types  
  end
   as :user do
       patch '/user/confirmation' => 'confirmations#update', :via => :patch, :as => :update_user_confirmation
   end
+  DynamicRouter.load
 end
