@@ -1,0 +1,3 @@
+class InsuranceTypesController < ApplicationControlleref
+
+end

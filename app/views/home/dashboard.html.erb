@@ -11,8 +11,7 @@
             </div>
             <div class="navbar-collapse collapse" id="navbar">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Car</a></li>
-                <li><a href="#about">Two Wheeler</a></li>
+                <%= render :partial => "/insurance_types/header_insurance_type" ,locals: {parents: @insurance_types}%>
                 <li><a href="#contact">Health</a></li>
                 <li><a href="#contact">Life</a></li>
                 <li><a href="#contact">Travel</a></li>

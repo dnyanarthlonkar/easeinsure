@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  
-  
+
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     get 'dashboard/index'
   end
 
   get 'home/dashboard'
+  get "contact_us" => "home#contact_us"
+  post "save_contact" => "home#save_contact"
+  get "save_contact" => "home#contact_us"
 
   resources :home
   root 'home#dashboard'

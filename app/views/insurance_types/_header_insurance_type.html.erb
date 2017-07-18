@@ -1,0 +1,5 @@
+<% parents.each do |insurance_type| %>
+	<%= content_tag(:li,class: 'active') do %>
+		<%= content_tag(:a, insurance_type.name, href: insurance_type.permalink_url) %>
+	<% end %>
+<% end %>

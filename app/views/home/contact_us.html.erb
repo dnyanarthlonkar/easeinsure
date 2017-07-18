@@ -1,0 +1,98 @@
+<div class="innerdiv contact">
+	<div class="container">
+	  <div class="row">
+	    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+	      <h3>HEAD OFFICE</h3>
+	      16 LADCOLONY
+	      YESHWANT NIWAS ROAD<br>
+	      INDORE- M.P<br>
+	      Phone: 0731-4098384<br>
+	      Email: info@easeinsure.com
+	    </div>
+	    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+	      <div class="toggleradio">
+	        <label><input id="rdb1" type="radio" name="toggler" value="1" checked/>CONTACT US BY PHONE</label>
+	        <label><input id="rdb2" type="radio" name="toggler" value="2" />CONTACT US BY E-MAIL</label>
+	      </div>
+	      <div id="blk-1" class="contactdiv toHide">
+	        <h3>CONTACT US BY PHONE</h3>
+	        <%= form_for @contact_us_by_phone, :url=> save_contact_path , :method=> :post do |form|%>
+	          <% if @contact_us_by_phone.type_by_phone? && flash[:contact_errors].present? %>
+		          <div class="alert alert-danger">
+		          	<%= flash[:contact_errors] %>
+		          </div>
+	          <% end %>
+	          <div class="form-group">
+	            <label for="exampleInputEmail1">Name<span>*</span></label>
+	            <%= form.text_field :name, :class => "form-control",:required => true %>
+	          </div>
+	          <div class="form-group">
+	            <label for="exampleInputPassword1">Phone<span>*</span></label>
+	            <%= form.text_field :phone, :class => "form-control",:required => true %>
+	          </div>
+	          <div class="form-group">
+	            <label for="exampleInputPassword1">Type of insurance<span>*</span></label>
+	            <%= form.select :type_of_insurance, ["Car Insurance","Two Wheeler","Health","Life","Travel","Investements"], {class: "form-control"} %>
+	          
+	          </div>
+	          <div class="form-group">
+	            <label for="exampleInputPassword1">Perfect call time<span>*</span></label>
+	              <%= form.select :prefer_call_time, ["Morning","Afternoon","Evening"]%>
+	          </div>
+	          <div class="form-group">
+	            <label for="exampleInputEmail1">Email<span>*</span></label>
+	            <%= form.email_field :email, :class => "form-control",:required => true%>
+	          </div>
+	          <div class="form-group">
+	            <label for="exampleInputEmail1">Question/Comments</label>
+	            <%= form.text_area :comments, :class=> "form-control", :rows => 3 %>
+	          </div>
+	          <button type="submit" class="btn btn-default btn-block greenbtn">SUBMIT</button>
+	        <% end %>
+	      </div>
+	      <div id="blk-2" class="contactdiv toHide" style="display:none">
+	        <h3>CONTACT US BY E-MAIL</h3>
+	         <%= form_for @contact_us_by_email, :url=> save_contact_path , :method=> :post do |form|%>
+	         <% if @contact_us_by_email.type_by_email? && flash[:contact_errors].present? %>
+		          <div class="alert alert-danger">
+		          	<%= flash[:contact_errors] %>
+		          </div>
+	          <% end %>
+	          <div class="form-group">
+	            <label for="exampleInputEmail1">Name<span>*</span></label>
+	            <%= form.text_field :name, :class => "form-control",:required => true %>
+	          </div>
+	          <div class="form-group">
+	            <label for="exampleInputPassword1">Email<span>*</span></label>
+	            <%= form.email_field :email, :class => "form-control", :required => true%>
+	          </div>
+	          <div class="form-group">
+	            <label for="exampleInputPassword1">Type of insurance<span>*</span></label>
+	            <%= form.select :type_of_insurance, ["Car Insurance","Two Wheeler","Health","Life","Travel","Investements"], {class: "form-control"} %>
+	          </div>
+	          <div class="form-group">
+	            <label for="exampleInputEmail1">Question/Comments</label>
+	            <%= form.text_area :comments, :class=> "form-control", :rows => 3 %>
+	          </div>
+	          <button type="submit" class="btn btn-default btn-block greenbtn">SUBMIT</button>
+	        <% end %>
+	      </div>
+	      <div class="map">
+	        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29441.618825691403!2d75.85856816323339!3d22.720719008216907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C+Madhya+Pradesh+452001!5e0!3m2!1sen!2sin!4v1475423902730" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $("[name=toggler]").click(function(){
+      $('.toHide').hide();
+      $("#blk-"+$(this).val()).show('slow');
+    });
+    <% if @contact_us_by_email.type_by_email? %>
+      $("#rdb2").click();
+    <% end %>
+  });
+</script>

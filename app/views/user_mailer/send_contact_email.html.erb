@@ -1,0 +1,29 @@
+Hi,
+
+You got new enquiry:
+
+<p>
+	<strong>Name: </strong> <%= @contact_us.name %>
+</p>
+<p>
+	<strong>Phone: </strong> <%= @contact_us.phone %>
+</p>
+<% if @contact_us.type_of_insurance? %>
+<p>
+	<strong>Type of Insurance: </strong> <%= @contact_us.type_of_insurance %>
+</p>
+<% end %>
+<% if @contact_us.prefer_call_time? %>
+<p>
+	<strong>Prefer Call Time: </strong> <%= @contact_us.prefer_call_time %>
+</p>
+<% end %>
+<p>
+	<strong>Email: </strong> <%= @contact_us.email %>
+</p>
+<% if @contact_us.comments? %>
+<p>
+	<strong>Question/ Comments: </strong> <%= @contact_us.comments %>
+</p>
+<% end %>
+Thanks
